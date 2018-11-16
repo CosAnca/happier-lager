@@ -1,0 +1,17 @@
+{#
+ # Component Template – Testimonial 
+ # --------------------------------
+ #
+ # This template is used to output HTML for a Testimonial matrix block.
+ #
+ # A `self` variable is expected in this template.
+-#}
+
+<div class="g1-flex4 g2-flex2 g3-flex4 bubble">
+  <blockquote>{{ self.quote }}</blockquote>
+  {% set photo = self.photo.one() %}
+  {% if photo %}
+    <img class="" src="{{ photo.url({ width: 84, height: 84 }) }}" alt="{{ photo.title }}">
+  {% endif %}
+  <p><cite class="gamma reverse">{{ self.cite }}</cite></p>
+</div>

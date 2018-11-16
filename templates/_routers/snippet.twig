@@ -1,0 +1,15 @@
+{#
+ # Snippet Router Template
+ # ----------------------
+ #
+ # This template gets loaded whenever a Snippet View is requested in a parent view.
+ #
+ # An `entry` variable is expected in this template.
+-#}
+
+{%- include [
+  '_views/snippets/' ~ entry.section.handle ~ '/' ~ entry.type.handle,
+  '_views/snippets/' ~ entry.section.handle ~ '/default',
+  '_views/snippets/' ~ entry.section.handle,
+  '_views/snippets/default',
+] -%}

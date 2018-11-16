@@ -1,0 +1,23 @@
+{#
+ # Component Template – Quote 
+ # --------------------------
+ #
+ # This template is used to output HTML for a Quote matrix block.
+ #
+ # A `self` variable is expected in this template.
+-#}
+
+{# Are we giving it a custom BG color? #}
+{% set bgColor = self.position == 'full' and bgColor != '#000000' ? bgColor %}
+
+<blockquote class="blockquote{%- if bgColor %} reverse{% endif -%}"
+{%- if bgColor %} style="background-color: {{ bgColor }};"{% endif -%}
+>
+  <div class="flex">
+    <p>{{ self.quote }}</p>
+
+    {% if self.attribution %}
+      <footer>– <cite>{{ self.attribution }}</cite></footer>
+    {% endif %}
+  </div>
+</blockquote>

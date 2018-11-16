@@ -1,0 +1,14 @@
+{#
+ # Snippet View Template – Default
+ # -------------------------------
+ #
+ # This template gets loaded whenever the Snippet Router falls back to the default variant.
+ #
+-#}
+
+{% block view_main %}
+  <a href="{{ entry.url }}">
+    {% block view_main_icon %}{% endblock %}
+    <span class="{{ entry.section.handle }}-title">{{ entry.title }}</span>
+  </a>
+{% endblock %}

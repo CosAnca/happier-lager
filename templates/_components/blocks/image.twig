@@ -1,0 +1,23 @@
+{#
+ # Component Template – Image 
+ # --------------------------
+ #
+ # This template is used to output HTML for an Image matrix block.
+ #
+ # A `self` variable is expected in this template.
+-#}
+
+{% set image = self.image.one() %}
+{% if image %}
+  {% if self.position == 'full' %}
+    {% do image.setTransform({ width: 1440, height: 480 }) %}
+  {% elseif self.position == 'center' %}
+    {% do image.setTransform({ width: 600 }) %}
+  {% elseif isBreakout %}
+    {% do image.setTransform({ width: 460 }) %}
+  {% else %}
+    {% do image.setTransform({ width: 360 }) %}
+  {% endif %}
+
+  <p><img{% if self.position == 'full' %} class="contain-media"{% endif %} src="{{ image.url }}" alt="{{ image.title }}"></p>
+{% endif %}

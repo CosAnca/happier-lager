@@ -1,0 +1,56 @@
+{#
+ # Teaser View Template – Locations
+ # --------------------------------
+ #
+ # This template gets loaded whenever the Teaser View is requested for a Locations entry.
+ #
+-#}
+
+{% extends "_views/teasers/default" %}
+
+{% block view_main %}
+  <section class="alt2">
+    <div class="flex">
+      <div class="g1-flex4 g2-flex6 g3-flex5">
+        <h1 class="gamma subfont alt">{{ entry.title }}</h1>
+
+        {% if entry.address %}
+          <p class="delta subfont caps address">{{ entry.address|nl2br }}</p>
+        {% endif %}
+
+        {% if entry.contactMethods|length %}
+          <dl class="inline">
+            {% for block in entry.contactMethods.all() %}
+              <dt>{{ block.label }}</dt>
+              <dd>{{ block.value }}</dd>
+            {% endfor %}
+          </dl>
+        {% endif %}
+        {% if entry.email or entry.address %}
+          <ul class="horz-list">
+            {% if entry.email %}
+              <li>
+                <a href="mailto:{{ entry.email }}" class="subfont caps email-us-btn">Email Us</a>
+              </li>
+            {% endif %}
+            {% if entry.address %}
+
+              {# Create a Google Maps URL based on the address #}
+              {% set gMapsUrl = 'https://www.google.com/maps/search/' ~ entry.address|replace("\n", ', ')|url_encode %}
+
+              <li>
+                <a href="{{ gMapsUrl }}" target="_blank" class="subfont caps map-btn">Map</a>
+              </li>
+            {% endif %}
+          </ul>
+        {% endif %}
+      </div>
+      <div class="g1-flex4 g2-flex6 g3-flex7">
+        {% set image = entry.featuredImage.one() %}
+        {% if image %}
+          <img src="{{ image.getUrl('medium') }}" alt="{{ image.title }}" />
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,15 @@
+{#
+ # Teaser Router Template
+ # ----------------------
+ #
+ # This template gets loaded whenever a Teaser View is requested in a parent view.
+ #
+ # An `entry` variable is expected in this template.
+-#}
+
+{%- include [
+  '_views/teasers/' ~ entry.section.handle ~ '/' ~ entry.type.handle,
+  '_views/teasers/' ~ entry.section.handle ~ '/default',
+  '_views/teasers/' ~ entry.section.handle,
+  '_views/teasers/default',
+] -%}

@@ -1,0 +1,16 @@
+{#
+ # Snippet View Template – News
+ # ----------------------------
+ #
+ # This template gets loaded whenever the Snippet View is requested for a Services entry.
+ #
+-#}
+
+{% extends "_views/snippets/default" %}
+
+{% block view_main_icon %}
+  {% set icon = entry.serviceIcon.one() %}
+  {% if icon %}
+    <img src="{{ icon.url }}" alt="{{ icon.title }}">
+  {% endif %}
+{% endblock %}

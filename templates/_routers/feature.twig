@@ -1,0 +1,15 @@
+{#
+ # Feature Router Template
+ # ----------------------
+ #
+ # This template gets loaded whenever a Feature View is requested in a parent view.
+ #
+ # An `entry` variable is expected in this template.
+-#}
+
+{%- include [
+  '_views/features/' ~ entry.section.handle ~ '/' ~ entry.type.handle,
+  '_views/features/' ~ entry.section.handle ~ '/default',
+  '_views/features/' ~ entry.section.handle,
+  '_views/features/default',
+] -%}

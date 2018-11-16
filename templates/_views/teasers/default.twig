@@ -1,0 +1,21 @@
+{#
+ # Teaser View Template – Default
+ # ------------------------------
+ #
+ # This template gets loaded whenever the Teaser Router falls back to the default variant.
+ #
+-#}
+
+{% block view_main %}
+  {% set image = image ?? entry.featuredImage.one() %}
+  <div class="g1-flex4 g2-flex2 g3-flex4">
+    <a href="{{ entry.url }}" class="services-entry-wrap">
+      {% if image %}
+        <img src="{{ image.getUrl('thumb') }}" alt="{{ image.title }}"/>
+      {% endif %}
+
+      <h3 class="center">{{ entry.title }}</h3>
+      {{ entry.shortDescription }}
+    </a>
+  </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{#
+ # Detail View Template – Services Index
+ # -------------------------------------
+ #
+ # This template gets loaded whenever the Detail View is requested for the Services Index entry.
+ #
+-#}
+
+{% extends "_views/details/_index" %}
+
+{% block view_main %}
+  <section>
+    <div class="flex">
+
+      {# Loop through all of the Services entries in their Structure-defined order #}
+      {% for entry in craft.entries.section('services').all() %}
+        {% include "_routers/teaser" with { entry: entry } %}
+      {% endfor %}
+
+    </div>
+  </section>
+{% endblock %}

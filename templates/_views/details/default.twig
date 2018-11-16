@@ -1,0 +1,42 @@
+{#
+ # Detail View Template – Default
+ # ----------------------------
+ #
+ # This template gets loaded whenever the Detail Router falls back to the default variant.
+ #
+-#}
+
+{% block view_header %}{% endblock %}
+
+{% block view_main %}
+  <article>
+    
+    {% include "_components/title" with { 
+      self: {
+        title: entry.title,
+        backgroundColor: entry.backgroundColor ?? null,
+      }
+    } %}
+
+    {% include "_components/featuredImage" with { 
+      self: {
+        featuredImage: entry.featuredImage.one() ?? null
+      }
+    } %}
+    
+    {% include "_components/articleHeading" with { 
+      self: {
+        heading: entry.heading,
+        subheading: entry.subheading
+      }
+    } %}
+
+    {% include "_components/articleBody" with {
+      self: entry.articleBody,
+      bgColor: entry.backgroundColor
+    } %}
+    
+  </article>
+{% endblock %}
+
+{% block view_footer %}{% endblock %}

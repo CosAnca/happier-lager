@@ -1,0 +1,26 @@
+{#
+ # Detail View Template – _index
+ # -----------------------------
+ #
+ # This template serves as a base template for all Detail View for various Index pages.
+ #
+-#}
+
+{% extends "_views/details/default" %}
+
+{% block view_header %}
+
+  {% include "_components/title" with { 
+      self: {
+        title: entry.title ?? null
+      }
+  } %}
+
+  {% include "_components/intro" with { 
+      self: {
+        heading: entry.heading ?? null,
+        body: entry.body ?? null
+      }
+  } %}
+  
+{% endblock %}

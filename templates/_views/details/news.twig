@@ -1,0 +1,19 @@
+{#
+ # Detail View Template – News
+ # ---------------------------
+ #
+ # This template gets loaded whenever the Detail View is requested for a News entry.
+ #
+-#}
+
+{% extends "_views/details/default" %}
+
+{% block view_footer %}
+  <footer class="authorinfo">
+    <div class="flex">
+      <div class="g1-flex4 g2-flex6 g3-flex12">
+        <p class="center author">{{ entry.author.name }}</p>
+      </div>
+    </div>
+  </footer>
+{% endblock %}

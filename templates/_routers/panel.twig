@@ -1,0 +1,15 @@
+{#
+ # Panel Router Template
+ # ----------------------
+ #
+ # This template gets loaded whenever a Panel View is requested requested in a parent view.
+ #
+ # An `entry` variable is expected in this template.
+-#}
+
+{%- include [
+  '_views/panels/' ~ entry.section.handle ~ '/' ~ entry.type.handle,
+  '_views/panels/' ~ entry.section.handle ~ '/default',
+  '_views/panels/' ~ entry.section.handle,
+  '_views/panels/default',
+] -%}

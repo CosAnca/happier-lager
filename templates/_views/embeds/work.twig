@@ -1,0 +1,39 @@
+{#
+ # Embed View Template – Work
+ # --------------------------
+ #
+ # This template gets loaded whenever the Embed View is requested for a Work entry.
+ #
+-#}
+
+{% extends "_views/embeds/default" %}
+
+{% block view_main %}
+  <section class="services-work-entry">
+    {% set image = entry.featuredImage.inReverse().one() %}
+    {% if image %}
+      <div style="background-image: url('{{ image.url }}')">
+    {% endif %}
+
+    <div class="flex">
+      <div class="g1-flex4 g2-flex3 g3-flex6">
+        <a href="{{ entry.url }}">
+          {% set image = entry.featuredImage.one() %}
+          {% if image %}
+            <img src="{{ image.url({ width: 440, height: 328 }) }}" alt="{{ image.title }}">
+          {% endif %}
+        </a>
+      </div>
+      <div class="g1-flex4 g2-flex3 g3-flex6">
+        <div class="summary-wrap">
+          <h2 class="callout-border"><a href="{{ entry.url }}">{{ entry.title }}</a></h2>
+          <h3><a href="{{ entry.url }}">{{ entry.heading }}</a></h3>
+          {% if entry.subheading %}
+            <p>{{ entry.subheading }}</p>
+          {% endif %}
+          <p><a href="{{ entry.url }}" class="view-more hero-cta">View More</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

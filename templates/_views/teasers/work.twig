@@ -1,0 +1,14 @@
+{#
+ # Teaser View Template – Work
+ # ----------------------------
+ #
+ # This template gets loaded whenever the Teaser View is requested for a Work entry.
+ #
+-#}
+
+{% extends "_views/teasers/default" %}
+
+{% block view_main %}
+  {% set image = entry.featuredThumb.one() %}
+  {{ parent() }}
+{% endblock %}

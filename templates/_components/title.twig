@@ -1,0 +1,16 @@
+{#
+ # Component Template – Title 
+ # --------------------------
+ #
+ # This template is used to output HTML for a Title component.
+ #
+ # A `self` variable is expected in this template.
+-#}
+
+<header class="alt2"{%- if self.backgroundColor ?? false %} style="background:{{ self.backgroundColor }};"{% endif -%}>
+  <div class="flex">
+    <div class="g1-flex4 g2-flex6 g3-flex12">
+      <h1 class="alpha center reverse">{{ self.title }}</h1>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,28 @@
+{#
+ # Panel View Template – Work
+ # ----------------------------
+ #
+ # This template gets loaded whenever the Panel View is requested for a Work entry.
+ #
+-#}
+
+{% extends "_views/panels/default" %}
+
+{% block view_main %}
+  <article class="work-entry">
+    {% set image = entry.featuredImage.inReverse().one()  %}
+    {% if image %}
+      <figure>
+        <a href="{{ entry.url }}">
+          <img src="{{ image.getUrl({ width: 616 }) }}" alt="{{ image.title }}" width="616" height="204">
+        </a>
+      </figure>
+    {% endif %}
+
+    <div class="summary-wrap">
+      <h3><a href="{{ entry.url }}">{{ entry.title }}</a></h3>
+      {{ entry.shortDescription }}
+      <p><a href="{{ entry.url }}" class="more-link">Read More</a></p>
+    </div>
+  </article>
+{% endblock %}

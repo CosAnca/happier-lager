@@ -1,0 +1,21 @@
+{#
+ # Component Template – Article Heading 
+ # ------------------------------------
+ #
+ # This template is used to output HTML for "Heading" and "Subheading" fields.
+ #
+ # A `self` variable is expected in this template.
+-#}
+
+<div class="flex">
+	<div class="g1-flex4 g2-flex6 g3-flex10 g3-offset1">
+		<hr class="horz-rule">
+		{% if self.heading %}
+			<h2 class="beta center">{{ self.heading }}</h2>
+		{% endif %}
+		{% if self.subheading %}
+			<h3 class="delta center subfont">{{ self.subheading }}</h3>
+		{% endif %}
+		<hr class="horz-rule">
+	</div>
+</div>

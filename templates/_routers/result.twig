@@ -1,0 +1,15 @@
+{#
+ # Result Router Template
+ # ----------------------
+ #
+ # This template gets loaded whenever a Result View is requested in a parent view.
+ #
+ # An `entry` variable is expected in this template.
+-#}
+
+{%- include [
+  '_views/results/' ~ entry.section.handle ~ '/' ~ entry.type.handle,
+  '_views/results/' ~ entry.section.handle ~ '/default',
+  '_views/results/' ~ entry.section.handle,
+  '_views/results/default',
+] -%}

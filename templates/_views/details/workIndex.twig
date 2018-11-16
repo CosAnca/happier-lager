@@ -1,0 +1,38 @@
+{#
+ # Detail View Template – Work Index
+ # -------------------------------------
+ #
+ # This template gets loaded whenever the Detail View is requested for the Work Index entry.
+ #
+-#}
+
+{% extends "_views/details/_index" %}
+
+
+{% block view_main %}
+  {# Loop through all of the Work section entries #}
+  {% for workEntry in craft.entries.section('work').all() %}
+
+    {# We give special treatment to the latest work entry #}
+    {% if loop.first %}
+
+      {% include "_routers/feature" with { entry: workEntry } %}
+
+    {% else %}
+
+      {# Start the .flex container right after the first entry #}
+      {% if loop.index == 2 %}
+        <div class="flex">
+      {% endif %}
+
+      {% include "_routers/panel" with { entry: workEntry } %}
+
+      {# End the .flex container after the last entry #}
+      {% if loop.last %}
+        </div>
+      {% endif %}
+
+    {% endif %}
+
+  {% endfor %}
+{% endblock %}

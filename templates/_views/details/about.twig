@@ -1,0 +1,39 @@
+{#
+ # Detail View Template – About
+ # ----------------------------
+ #
+ # This template gets loaded whenever the Detail View is requested for the About entry.
+ #
+-#}
+
+{% extends "_views/details/default" %}
+
+{% block view_main %}
+  {% include "_components/title" with { 
+      self: {
+        title: nav[bodyClass].title
+      }
+    } 
+  %}
+
+  {% include "_components/intro" with { 
+      self: {
+        heading: entry.heading ?? null,
+        body: entry.body ?? null,
+        hasBackground: true
+      }
+    } 
+  %}
+
+  {% include "_components/articleBody" with {
+      self: entry.articleBody,
+      bgColor: entry.backgroundColor 
+    } 
+  %}
+
+  {# Loop through all of the Locations entries in their Structure-defined order #}
+  {% for locationEntry in craft.entries.section('locations').all() %}
+    {% include "_routers/teaser" with { entry: locationEntry } %}
+  {% endfor %}
+
+{% endblock %}

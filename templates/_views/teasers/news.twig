@@ -1,0 +1,38 @@
+{#
+ # Teaser View Template – News
+ # ----------------------------
+ #
+ # This template gets loaded whenever the Teaser View is requested for a News entry.
+ #
+-#}
+
+{% extends "_views/teasers/default" %}
+
+{% block view_main %}
+  <article class="news-entry">
+    {% set image = entry.featuredImage.one() %}
+    {% if image %}
+      <figure>
+        <a href="{{ url }}">
+          <img src="{{ image.getUrl('thumb') }}" alt="{{ image.title }}" width="280" height="204">
+        </a>
+      </figure>
+    {% endif %}
+
+    <div class="summary-wrap">
+      <h3><a href="{{ url }}">{{ entry.title }}</a></h3>
+
+      {{ entry.shortDescription }}
+
+      <p>
+        {% if entry.type == 'link' %}
+          <a href="{{ url }}" class="more-link">Check it out</a>
+        {% else %}
+          <span class="author">{{ entry.author.getFullName() }}</span>
+          <span class="separator">|</span>
+          <a href="{{ url }}" class="more-link">Read More</a>
+        {% endif %}
+      </p>
+    </div>
+  </article>
+{% endblock %}

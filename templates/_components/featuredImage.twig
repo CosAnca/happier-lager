@@ -1,0 +1,14 @@
+{#
+ # Component Template – Featured Image 
+ # -----------------------------------
+ #
+ # This template is used to output HTML for a Featured Image component.
+ #
+ # A `self` variable is expected in this template.
+-#}
+
+{% if self.featuredImage %}
+  <section>
+    <img class="contain-media" src="{{ self.featuredImage.getUrl({ width: 1440, height: 360 }) }}" alt="{{ self.featuredImage.title }}">
+  </section>
+{% endif %}

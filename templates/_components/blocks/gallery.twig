@@ -1,0 +1,15 @@
+{#
+ # Component Template – Gallery 
+ # ----------------------------
+ #
+ # This template is used to output HTML for a Gallery matrix block.
+ #
+ # A `self` variable is expected in this template.
+-#}
+
+{% for image in self.images.all() %}
+  <div class="g1-flex4 g2-flex2 g3-flex4">
+    <img src="{{ image.getUrl('small') }}" alt="{{ image.title }}">
+    {{ image.shortDescription }}
+  </div>
+{% endfor %}

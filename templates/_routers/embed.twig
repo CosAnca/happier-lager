@@ -1,0 +1,15 @@
+{#
+ # Embed Router Template
+ # ----------------------
+ #
+ # This template gets loaded whenever an Embed View is requested in a parent view.
+ #
+ # An `entry` variable is expected in this template.
+-#}
+
+{%- include [
+  '_views/embeds/' ~ entry.section.handle ~ '/' ~ entry.type.handle,
+  '_views/embeds/' ~ entry.section.handle ~ '/default',
+  '_views/embeds/' ~ entry.section.handle,
+  '_views/embeds/default',
+] -%}
