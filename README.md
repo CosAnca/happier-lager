@@ -1,3 +1,19 @@
+# Happier Lager
+
+A fork of Happy Lager, [the official Pixel and Tonic Craft Demo site](https://github.com/craftcms/demo), modified to follow a modular template architecture.
+
+The modified templates follow the same _Router-View-Component-Layout_ architecture as presented in the talk “[Architecting a Content Website](https://dotall.com/sessions/architecting-a-content-website)” at [Dot All Conf 2018](https://dotall.com). You can [watch the talk video](https://vimeo.com/295001383), or [browse through the slides](https://speakerdeck.com/souvikdg/modular-architecture-for-building-content-websites) for further information.
+
+The website features and behaviour is pretty much identical to the orginal demo site, and minimum code changes have been made to reflect the spirit of _Router-View-Component-Layout_ architecture. Only template paths have been modified in the database. 
+
+[Please report](https://github.com/miranj/happier-lager/issues) any glaring issues, or suggestions.
+
+Brought to you by [Miranj](http://miranj.in).
+
+---
+
+[Original Readme]
+
 # Craft demo site
 
 This repo contains all of the templates, front-end resources, and a MySQL database backup for “Happy Lager”, a Craft demo site.
